@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.retry.annotation.Backoff;
@@ -19,9 +18,6 @@ public class ScheduledTasks {
     @Autowired
     @LoadBalanced
     protected RestTemplate restTemplate;
-
-    @Autowired
-    private CounterService counterService;
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
