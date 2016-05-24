@@ -1,5 +1,6 @@
 package pl.keyer.spring.daemon;
 
+// Normally would be imported from service model
 public class Greeting {
     private long id;
     private String content;
