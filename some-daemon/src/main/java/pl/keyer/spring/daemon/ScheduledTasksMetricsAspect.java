@@ -3,6 +3,7 @@ package pl.keyer.spring.daemon;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.stereotype.Component;
@@ -19,11 +20,16 @@ public class ScheduledTasksMetricsAspect {
 
     @AfterThrowing(pointcut = "execution(* pl.keyer.spring.daemon.ScheduledTasks.reportCurrentTime())", throwing = "e")
     public void afterMethodThrowsException(Exception e) {
-        counterService.increment("test.errors");
+        counterService.increment("meter.test.errors");
     }
 
     @AfterReturning(pointcut = "execution(* pl.keyer.spring.daemon.ScheduledTasks.reportCurrentTime())")
     public void afterMethodFinishes() {
-        counterService.increment("test.success");
+        counterService.increment("meter.test.success");
+    }
+
+    @Before("execution(* pl.keyer.spring.daemon.ScheduledTasks.reportCurrentTime())")
+    public void afterMethodStarts() {
+        counterService.increment("meter.test.attempt");
     }
 }
