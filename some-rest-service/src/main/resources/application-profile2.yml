@@ -1,0 +1,8 @@
+server:
+  port: 8091
+
+application:
+  text:
+    debug: ohi this is profile 2 debug text
+    info: ohi this is profile 2 info text
+
