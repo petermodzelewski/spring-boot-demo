@@ -6,20 +6,17 @@
 
     <parent>
         <groupId>pl.keyer.spring</groupId>
-        <artifactId>example</artifactId>
+        <artifactId>example-wallet-service</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>spring-boot-admin</artifactId>
+    <artifactId>example-wallet-service-client</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-server</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-server-ui</artifactId>
+            <groupId>pl.keyer.spring</groupId>
+            <artifactId>example-wallet-service-model</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

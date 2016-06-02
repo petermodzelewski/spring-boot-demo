@@ -1,8 +1,0 @@
-server:
-  port: 8095
-
-application:
-  text:
-    debug: ohi this is profile 3 debug text
-    info: ohi this is profile 3 info text
-
