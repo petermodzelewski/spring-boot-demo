@@ -1,9 +1,6 @@
 package pl.keyer.spring.swagger.service;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +10,7 @@ import pl.keyer.spring.swagger.service.model.WalletId;
 import pl.keyer.spring.swagger.service.model.WalletModification;
 
 @RequestMapping(value = "/wallet", produces = "application/json")
+@Api(tags = "WALLET-SERVICE", description = "Basic wallet operations")
 public interface WalletService {
 
     @ApiOperation("Creating new wallet")

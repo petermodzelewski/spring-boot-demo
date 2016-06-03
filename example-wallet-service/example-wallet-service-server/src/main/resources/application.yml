@@ -12,7 +12,7 @@ info:
 eureka:
   instance:
     hostname: localhost
-    statusPageUrlPath: /swagger-ui.html
+    statusPageUrlPath: /swagger-ui.html#/WALLET-SERVICE
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/

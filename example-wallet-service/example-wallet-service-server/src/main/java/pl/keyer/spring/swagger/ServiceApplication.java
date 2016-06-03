@@ -33,8 +33,8 @@ public class ServiceApplication {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Wallet REST Api")
-                .description("Wallet control and transactions between wallets")
+                .title("Example REST Api")
+                .description("Wallet creation and control")
                 .build();
     }
 }
