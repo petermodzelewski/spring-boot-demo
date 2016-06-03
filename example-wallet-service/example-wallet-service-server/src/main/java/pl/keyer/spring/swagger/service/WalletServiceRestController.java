@@ -1,51 +1,32 @@
 package pl.keyer.spring.swagger.service;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import pl.keyer.spring.swagger.service.model.*;
-import com.google.common.collect.Lists;
-
-import java.util.List;
+import pl.keyer.spring.swagger.service.model.Wallet;
+import pl.keyer.spring.swagger.service.model.WalletId;
+import pl.keyer.spring.swagger.service.model.WalletModification;
 
 @RestController
 public class WalletServiceRestController implements WalletService {
 
     @Override
-    public Wallet createWallet(WalletId walletId) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public Wallet createWallet(@RequestBody WalletId walletId) {
         return getWallet(walletId.getType() + "_" + walletId.getId());
     }
 
     @Override
-    public Wallet getWallet(String walletId) {
+    public Wallet getWallet(@PathVariable("walletId") String walletId) {
         return new Wallet(walletId, 0, 0, "todo", "todo");
     }
 
     @Override
-    public Wallet modifyActiveFundsOnWallet(String walletId, WalletModification walletModification) {
+    @ResponseStatus(HttpStatus.OK)
+    public Wallet modifyActiveFundsOnWallet(@PathVariable("walletId") String walletId, @RequestBody WalletModification walletModification) {
         return new Wallet(walletId, walletModification.getAmount(), 0, "todo", "todo");
     }
-
-    @Override
-    public Transfer createTransfer(String walletId, TransferArguments transferArguments) {
-        return new Transfer("transfer_id", walletId, transferArguments);
-    }
-
-    @Override
-    public Transfer cancelTransfer(String walletId, String transferId) {
-        return new Transfer("123", "u_1", "ch_2", 123, "Reason", TransferStatus.CANCELED);
-    }
-
-    @Override
-    public Transfer finalizeTransfer(String walletId, String transferId) {
-        return new Transfer("123", "u_1", "ch_2", 123, "Reason", TransferStatus.FINISHED);
-    }
-
-    @Override
-    public List<Transfer> getTransfers(String walletId) {
-        return Lists.newArrayList(
-                new Transfer("123", "u_1", "ch_2", 123, "Reason", TransferStatus.CANCELED),
-                new Transfer("123", "u_1", "ch_3", 123, "Reason", TransferStatus.FINISHED)
-        );
-    }
-
 
 }

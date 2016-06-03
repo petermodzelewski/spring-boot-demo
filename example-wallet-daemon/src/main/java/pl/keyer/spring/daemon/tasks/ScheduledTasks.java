@@ -1,19 +1,17 @@
 package pl.keyer.spring.daemon.tasks;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 import pl.keyer.spring.swagger.service.WalletServiceClient;
 import pl.keyer.spring.swagger.service.model.Wallet;
 import pl.keyer.spring.swagger.service.model.WalletId;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Component
 @EnableDiscoveryClient
