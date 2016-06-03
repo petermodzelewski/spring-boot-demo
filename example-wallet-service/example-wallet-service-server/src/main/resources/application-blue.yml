@@ -1,0 +1,6 @@
+server:
+  port: 9095
+
+wallet:
+  service:
+    logMessage: blue was called

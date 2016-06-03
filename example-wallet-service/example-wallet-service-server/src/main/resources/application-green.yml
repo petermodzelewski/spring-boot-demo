@@ -1,0 +1,6 @@
+server:
+  port: 9091
+
+wallet:
+  service:
+    logMessage: green was called

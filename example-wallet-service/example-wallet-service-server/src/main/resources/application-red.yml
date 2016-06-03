@@ -1,0 +1,6 @@
+server:
+  port: 9090
+
+wallet:
+  service:
+    logMessage: red was called

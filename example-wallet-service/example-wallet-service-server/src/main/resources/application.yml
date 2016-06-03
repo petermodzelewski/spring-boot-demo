@@ -12,6 +12,11 @@ info:
 eureka:
   instance:
     hostname: localhost
+    statusPageUrlPath: /swagger-ui.html
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+wallet:
+  service:
+    logMessage: default was called
